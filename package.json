@@ -4,16 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "knex": "tsx ./node_modules/.bin/knex"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^20.12.11",
-    "eslint": "^9.2.0",
+    "eslint": "^8.0.0",
     "tsx": "^4.10.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "fastify": "^4.27.0"
+    "dotenv": "^16.4.5",
+    "fastify": "^4.27.0",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7",
+    "zod": "^3.23.8"
   }
 }
