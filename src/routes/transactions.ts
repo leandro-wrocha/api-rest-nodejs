@@ -5,7 +5,14 @@ import crypto from 'node:crypto';
 import { checkSessionIdExists } from "../middlewares/check-session-id-exists";
 
 // Cookies <--> Formas da gente manter o contexto entre requisições
-// 
+// unitários: unidade da sua aplicação
+// integração: comunicação entre duas ou mais unidades
+// e2e - ponta a ponta: simulam um usuário operando na nossa aplicação
+// front-end: abre a página de login, digite o texto diego@rocketseat.com.br no campo ID email, clique no botão LOGIN
+// back-end: chamadas HTTP, websockets
+
+// Pirâmide de testes: E2E (não dependem de nenhuma tecnologia, não dependem de arquitetura)
+// 2000 testes -> Testes E2E => 16min
 
 export async function transactionRoutes(app: FastifyInstance) {
   app.addHook('preHandler', async (request, reply) => {
