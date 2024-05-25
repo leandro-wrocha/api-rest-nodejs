@@ -5,15 +5,16 @@
 import fastify from "fastify";
 import { knex } from "./database";
 import { env } from "./env";
+import { transactionRoutes } from "./routes/transactions";
+import cookie from '@fastify/cookie';
+
 
 const app = fastify();
 
-app.get("/hello", async () => {
-  const transaction = await knex("transacitons").insert({
-    id: crypto.randomUUID(),
-    title: "Transação de teste",
-    amount: "./src"
-  });
+app.register(cookie);
+
+app.register(transactionRoutes, {
+  prefix: "transactions"
 });
 
 app.listen({ port: env.PORT }).then(() => {
